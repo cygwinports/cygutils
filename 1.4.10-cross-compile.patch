@@ -1,0 +1,23 @@
+--- origsrc/cygutils/Makefile.am	2012-02-05 14:50:18.000000000 -0600
++++ src/cygutils/Makefile.am	2013-02-17 20:43:44.576241300 -0600
+@@ -112,6 +112,7 @@ DISTCLEANFILES = \
+ 	po/remove-potcdate.sed \
+ 	src/cygicons/cygicons.rc
+ 
++libuuid = `${CC} -print-file-name=w32api/libuuid.a`
+ src_banner_banner_LDADD             = -lpopt -lkernel32 -lgdi32
+ src_clip_getclip_LDADD              = -lpopt
+ src_clip_putclip_LDADD              = -lpopt
+@@ -119,8 +120,10 @@ src_conv_conv_LDADD                 = -l
+ src_cygstart_cygstart_LDADD         = -lpopt
+ src_dump_dump_LDADD                 = -lpopt
+ src_lpr_lpr_LDADD                   = -lwinspool
+-src_mkshortcut_mkshortcut_LDADD     = -lpopt -lole32 /usr/lib/w32api/libuuid.a
+-src_readshortcut_readshortcut_LDADD = -lpopt -lole32 /usr/lib/w32api/libuuid.a
++src_mkshortcut_mkshortcut_LDADD     = -lpopt -lole32
++src_mkshortcut_mkshortcut_LDFLAGS   = ${libuuid}
++src_readshortcut_readshortcut_LDADD = -lpopt -lole32
++src_readshortcut_readshortcut_LDFLAGS = ${libuuid}
+ 
+ src_lpr_lpr_SOURCES = \
+ 	src/lpr/Printer.cc    src/lpr/Win32Utils.cc \

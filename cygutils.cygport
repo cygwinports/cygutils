@@ -1,0 +1,23 @@
+CVS_URI=":pserver:anoncvs@cygwin.com:/cvs/cygwin-apps"
+CVS_MODULE="cygutils"
+CVS_BRANCH=v${PV//\./_}
+inherit cvs
+
+NAME="cygutils"
+VERSION=1.4.10
+RELEASE=1
+CATEGORY="Utils"
+SUMMARY="Collection of simple utilities for Cygwin"
+DESCRIPTION="This package contains a collection of simple (single source file)
+utilities, including: lpr, banner, dump (no, not the ext2 backup utility; it's
+a hexdumper), Windows clipboard manipulation programs, and many more..."
+HOMEPAGE="http://cygutils.fruitbat.org/"
+
+WANT_AUTOMAKE=1.11
+
+CYGCONF_ARGS="
+	ac_cv_func_malloc_0_nonnull=yes \
+	ac_cv_func_lstat_dereferences_slashed_symlink=yes \
+	ac_cv_func_lstat_empty_string_bug=no \
+	ac_cv_func_stat_empty_string_bug=no
+"
