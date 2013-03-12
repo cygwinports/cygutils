@@ -13,6 +13,9 @@ utilities, including: lpr, banner, dump (no, not the ext2 backup utility; it's
 a hexdumper), Windows clipboard manipulation programs, and many more..."
 HOMEPAGE="http://cygutils.fruitbat.org/"
 
+PATCH_URI="1.4.10-cross-compile.patch
+           1.4.10-deprecations.patch"
+
 WANT_AUTOMAKE=1.11
 
 CYGCONF_ARGS="
